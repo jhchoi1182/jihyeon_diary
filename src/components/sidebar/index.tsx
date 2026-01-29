@@ -1,15 +1,15 @@
-import { getPublicPosts } from "@/api/posts";
-import Categories from "./Categories";
-import Profile from "./Profile";
+import { getPublicPosts } from "@/api/posts"
+import Categories from "./Categories"
+import Profile from "./Profile"
 
 export default async function Sidebar() {
-  const posts = await getPublicPosts();
+  const posts = await getPublicPosts()
   const categories = [
     ...new Set(posts.map(({ categories }) => categories).flat()),
-  ];
+  ]
 
   return (
-    <section className="sticky flex flex-col items-center lg:hidden top-[68px] left-0 w-80 h-screen overflow-x-hidden border-r shadow-sm pointer-events-none hover:pointer-events-auto dark:border-lightDark">
+    <section className="fixed z-0 flex flex-col items-center lg:hidden top-[68px] left-0 w-80 h-screen overflow-x-hidden border-r shadow-sm pointer-events-none hover:pointer-events-auto dark:border-lightDark">
       <div className="w-[80%]">
         <div className="mt-10">
           <Profile />
@@ -22,5 +22,5 @@ export default async function Sidebar() {
         </div>
       </div>
     </section>
-  );
+  )
 }
