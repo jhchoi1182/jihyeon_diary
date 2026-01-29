@@ -1,5 +1,5 @@
-import { getPublicPosts } from "@/api/posts";
-import { MetadataRoute } from "next";
+import { getPublicPosts } from "@/api/posts"
+import { MetadataRoute } from "next"
 
 interface Sitemap extends MetadataRoute.Sitemap {
   changeFrequency?:
@@ -9,26 +9,26 @@ interface Sitemap extends MetadataRoute.Sitemap {
     | "weekly"
     | "monthly"
     | "yearly"
-    | "never";
-  priority?: number;
+    | "never"
+  priority?: number
 }
 
 export default async function sitemap(): Promise<Sitemap> {
-  const posts = await getPublicPosts();
+  const posts = await getPublicPosts()
   const pages = posts.map((post) => ({
     url: `https://www.jihyeon-blog.shop/${encodeURIComponent(post.path)}`,
     lastModified: new Date(),
-    changeFrequency: "daily",
+    changeFrequency: "daily" as const,
     priority: 0.5,
-  }));
+  }))
 
   return [
     {
       url: "https://www.jihyeon-blog.shop/",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "daily" as const,
       priority: 1,
     },
     ...pages,
-  ];
+  ]
 }

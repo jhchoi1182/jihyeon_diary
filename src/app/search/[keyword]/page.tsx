@@ -1,14 +1,15 @@
-import { getResultPosts } from "@/api/search";
-import FeaturedPosts from "@/components/featuredPosts";
+import { getResultPosts } from "@/api/search"
+import FeaturedPosts from "@/components/featuredPosts"
 
 type ResultSlug = {
-  params: {
-    keyword: string;
-  };
-};
+  params: Promise<{
+    keyword: string
+  }>
+}
 
-export default async function ResultPage({ params: { keyword } }: ResultSlug) {
-  const result = await getResultPosts(keyword);
+export default async function ResultPage({ params }: ResultSlug) {
+  const { keyword } = await params
+  const result = await getResultPosts(keyword)
 
-  return <FeaturedPosts posts={result} />;
+  return <FeaturedPosts posts={result} />
 }

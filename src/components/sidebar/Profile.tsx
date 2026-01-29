@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import profileImage from "../../../public/images/profile.webp";
-import { AiFillGithub } from "react-icons/ai";
+import Image from "next/image"
+import Link from "next/link"
+import profileImage from "../../../public/images/profile.webp"
+import { AiFillGithub } from "react-icons/ai"
 
 export default function Profile() {
   return (
@@ -24,5 +24,5 @@ export default function Profile() {
         <AiFillGithub />
       </a>
     </div>
-  );
+  )
 }

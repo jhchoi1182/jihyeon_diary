@@ -9,7 +9,7 @@ export default async function Sidebar() {
   ]
 
   return (
-    <section className="fixed z-0 flex flex-col items-center lg:hidden top-[68px] left-0 w-80 h-screen overflow-x-hidden border-r shadow-sm pointer-events-none hover:pointer-events-auto dark:border-lightDark">
+    <section className="fixed z-0 flex flex-col items-center lg:hidden top-17 left-0 w-80 h-screen overflow-x-hidden border-r border-gray-200 shadow-sm pointer-events-none hover:pointer-events-auto dark:border-lightDark">
       <div className="w-[80%]">
         <div className="mt-10">
           <Profile />

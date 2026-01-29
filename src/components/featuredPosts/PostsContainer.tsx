@@ -27,7 +27,7 @@ export default function PostsContainer({ posts }: PostsProps) {
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value as "desc" | "asc")}
-          className="p-2 border rounded bg-white text-black dark:bg-lightDark dark:text-gray-100 dark:border-gray-600"
+          className="p-2 border border-gray-200 rounded bg-white text-black dark:bg-lightDark dark:text-gray-100 dark:border-gray-600"
         >
           <option value="desc">최신순</option>
           <option value="asc">오래된순</option>
