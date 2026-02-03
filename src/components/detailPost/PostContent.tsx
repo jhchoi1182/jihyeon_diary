@@ -44,6 +44,7 @@ export default function PostContent({ content }: PostContentProps) {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${children} (opens in a new tab)`}
             >
               {children}
             </a>
