@@ -1,4 +1,4 @@
-https://www.acmicpc.net/problem/1074
+<https://www.acmicpc.net/problem/1074>
 
 z모양으로 증가하는 수열에서 좌표가 주어지면 몇번째 z인지 구하는 문제
 
