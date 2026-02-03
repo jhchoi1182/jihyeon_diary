@@ -38,7 +38,17 @@ export default function PostContent({ content }: PostContentProps) {
           h2: ({ children }) => (
             <h2 className="dark:text-slate-100">{children}</h2>
           ),
-          a: ({ children }) => <a className="text-river">{children}</a>,
+          a: ({ children, href }) => (
+            <a
+              className="text-river hover:underline"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${children} (opens in a new tab)`}
+            >
+              {children}
+            </a>
+          ),
           strong: ({ children }) => (
             <strong className="font-bold dark:text-slate-100">
               {children}
