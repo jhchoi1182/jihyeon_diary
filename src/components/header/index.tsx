@@ -10,14 +10,16 @@ export default function Header() {
         <h1 className="text-3xl font-bold slate-900 pl-10 whitespace-nowrap sm:pl-0">{"jihyeon's Blog"}</h1>
       </Link>
       <nav className="flex sm:block sm:w-full items-center text-white pr-10 sm:pr-0 sm:pt-2">
-        <div className="mr-4 sm:flex sm:justify-end sm:mb-4 sm:mr-0">
-          <Search />
-        </div>
-        <div className="flex sm:justify-end">
-          <Link href="/">
-            <AiFillHome className="text-2xl mr-5 cursor-pointer" />
-          </Link>
-          <DarkModeToggle />
+        <div className="flex sm:justify-end sm:w-full">
+          <div className="mr-4 sm:mr-0">
+            <Search />
+          </div>
+          <div className="flex items-center">
+            <Link href="/">
+              <AiFillHome className="text-2xl mr-5 cursor-pointer" />
+            </Link>
+            <DarkModeToggle />
+          </div>
         </div>
       </nav>
     </header>
