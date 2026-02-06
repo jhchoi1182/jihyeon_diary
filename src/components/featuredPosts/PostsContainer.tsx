@@ -1,6 +1,6 @@
 "use client"
 
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import PostCard from "./PostCard"
 import { Post } from "@/api/posts"
 import { CategoryContext } from "@/context/CategoryContext"
@@ -10,6 +10,17 @@ export default function PostsContainer({ posts }: PostsProps) {
   const { selectedCategory } = useContext(CategoryContext)
   const [sortOrder, setSortOrder] = useState<"desc" | "asc">("desc")
 
+  useEffect(() => {
+    const savedSortOrder = sessionStorage.getItem("postSortOrder")
+    if (savedSortOrder === "asc" || savedSortOrder === "desc") {
+      setSortOrder(savedSortOrder)
+    }
+  }, [])
+
+  useEffect(() => {
+    sessionStorage.setItem("postSortOrder", sortOrder)
+  }, [sortOrder])
+
   const filteredPosts =
     selectedCategory === "ALL"
       ? posts
@@ -18,6 +29,11 @@ export default function PostsContainer({ posts }: PostsProps) {
   const sortedPosts = [...filteredPosts].sort((a, b) => {
     const dateA = new Date(a.date).getTime()
     const dateB = new Date(b.date).getTime()
+
+    if (dateA === dateB) {
+      return a.title.localeCompare(b.title)
+    }
+
     return sortOrder === "desc" ? dateB - dateA : dateA - dateB
   })
 
