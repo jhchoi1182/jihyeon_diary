@@ -11,7 +11,7 @@ export default function Header() {
       </Link>
       <nav className="flex sm:block sm:w-full items-center text-white pr-10 sm:pr-0 sm:pt-2">
         <div className="flex sm:justify-end sm:w-full">
-          <div className="mr-4 sm:mr-0">
+          <div className="mr-4 sm:mr-2 sm:mt-1">
             <Search />
           </div>
           <div className="flex items-center">
